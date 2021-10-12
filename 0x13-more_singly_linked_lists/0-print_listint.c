@@ -2,17 +2,22 @@
 #include <stdio.h>
 
 /**
- * print_listint - print all elements of a `listint_t` list
- * @h: linked list head
- * Return: number of nodes
+ * print_listint - print elements of linkedlist
+ * @h: head
+ * Return: length of a string
  */
+
 size_t print_listint(const listint_t *h)
 {
-	const listint_t *c;
-	size_t count;
+	size_t no_nodes = 0;
 
-	for (c = h, count = 0; c != NULL; count++, c = c->next)
-		printf("%d\n", c->n);
+	const listint_t *currentv = h;
 
-	return (count);
+	while (currentv != NULL)
+	{
+		printf("%i\n", currentv->n);
+		currentv = currentv->next;
+		no_nodes++;
+	}
+	return (no_nodes);
 }
